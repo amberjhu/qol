@@ -59,7 +59,7 @@ check_and_install() {
   check_installed $1 || install_package $1
 }
 
-ESSENTIAL_PACKAGES="git curl wget vim"
+ESSENTIAL_PACKAGES="git curl wget vim make python3"
 echo "Installing the essentials: $ESSENTIAL_PACKAGES"
 for package in $ESSENTIAL_PACKAGES; do
   check_and_install $package
@@ -86,4 +86,30 @@ read -p "Would you like to install Rust using rustup? [y/N] " INSTALL_RUSTUP
 if [[ ${INSTALL_RUSTUP,,} == 'y' ]]; then
   # Officially endorsed command for unix as of March 2026
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+read -p "Would you like to install Nix? [y/N] " INSTALL_NIX
+if [[ ${INSTALL_NIX,,} == 'y' ]]; then
+  # Official command from https://nixos.org/download/ as of March 2026
+  sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+fi
+
+read -p "Would you like to install Nushell (requires sudo) [y/N] " INSTALL_NU
+if [[ ${INSTALL_NU,,} == 'y' ]]; then
+  if [[ ${PACKAGE_MANAGER} == 'apt' ]]; then
+    wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /" | sudo tee /etc/apt/sources.list.d/fury-nushell.list
+    sudo apt update
+    sudo apt install nushell
+  elif [[ ${PACKAGE_MANAGER} == 'dnf' ]]; then
+    echo "[gemfury-nushell]
+    name=Gemfury Nushell Repo
+    baseurl=https://yum.fury.io/nushell/
+    enabled=1
+    gpgcheck=0
+    gpgkey=https://yum.fury.io/nushell/gpg.key" | sudo tee /etc/yum.repos.d/fury-nushell.repo
+    sudo dnf install -y nushell
+  elif [[ ${PACKAGE_MANAGER} == 'pacman' ]]; then
+    pacman -S nushell
+  fi
 fi
