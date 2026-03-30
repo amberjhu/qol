@@ -67,14 +67,19 @@ done
 
 read -p "Would you like to generate SSH keys? [y/N] " GEN_SSH_KEYS
 if [[ ${GEN_SSH_KEYS,,} == 'y' ]]; then
-  exit 67
+  ssh-keygen
 fi
-
 read -p "Would you like to add an SSH host to the config file? [y/N] " ADD_SSH_CONFIG
 if [[ ${ADD_SSH_CONFIG,,} == 'y' ]]; then
   read -p "Nickname: " HOST_NICKNAME && read -p "Hostname (without http://) " HOST_HOSTNAME \
     && read -p "User: " HOST_USERNAME \
     && printf "Host $HOST_NICKNAME\nHostName $HOST_HOSTNAME\nUser $HOST_USERNAME\n\n" >> ~/.ssh/config
+fi
+read -p "Would you like to copy your SSH keys to another host? Requires username/password for that host [y/N]" SSH_COPY_ID_REPLY
+if [[ ${SSH_COPY_ID_REPLY,,} == 'y' ]]; then
+  read -p "Hostname: " SSH_COPY_ID_HOSTNAME
+  read -p "Username: " SSH_COPY_ID_USERNAME
+  ssh-copy-id "${SSH_COPY_ID_USERNAME}@${SSH_COPY_ID_HOSTNAME}"
 fi
 
 read -p "Would you like to install Rust using rustup? [y/N] " INSTALL_RUSTUP
