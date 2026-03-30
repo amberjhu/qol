@@ -5,6 +5,7 @@ A notebook for me to map out Unix filesystems.
 - `/etc/`
   - `passwd`
     - `/etc/passwd` file format
+
 |Username|Password|UID|GID|Full Name|Home dir|Login shell|
 |---|---|---|---|---|---|---|
 |daemon|x|1|1|daemon|/usr/sbin|/usr/sbin/nologin|
