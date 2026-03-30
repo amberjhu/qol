@@ -11,6 +11,8 @@ set shiftwidth=2
 # Insert spaces when Tab key is pressed
 set expandtab
 
+# FIXME: Make markdown indent with tab
+
 # Searching
 set ignorecase
 set showmatch
