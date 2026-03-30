@@ -4,6 +4,10 @@ vim9script
 # Copyright 2026 Amber Hu
 # Use :scriptnames to see whether this vimrc loaded properly
 
+# Allow custom filetype plugin files in ~/.vim/after/ftplugin/*.vim
+filetype plugin indent on
+syntax on
+
 # Line numbers and whitespace
 set number
 set tabstop=2
