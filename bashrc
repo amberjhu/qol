@@ -1,3 +1,9 @@
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+
 # Display the exit status of the last command
 PROMPT_COMMAND=__prompt_command    # Function to generate PS1 after CMDs
 
