@@ -17,7 +17,7 @@ So, let's put these all in one place for the future.
 |Question|Command|
 |---|---|
 |Which Linux distro version am I on?|`lsb_release -a`|
-|How do I confirm a checksum?|`echo "$SUM $FILE" | sha256sum -c`|
+|How do I confirm a checksum?|`echo "$SUM $FILE" \| sha256sum -c`|
 
 ## TODO
 
