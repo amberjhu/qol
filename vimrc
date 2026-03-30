@@ -1,4 +1,8 @@
 vim9script
+# ^^^^^^^^ This has to be the first line, otherwise syntax like # comments won't work
+
+# Copyright 2026 Amber Hu
+# Use :scriptnames to see whether this vimrc loaded properly
 
 # Line numbers and whitespace
 set number
@@ -26,6 +30,7 @@ set statusline+=%r              # readonly flag
 set statusline+=\ [%{&ff}]      # Fileformat [unix]/[dos] etc...
 set statusline+=\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})  # last modified timestamp
 set statusline+=%=              # Right align the following group:
+# See below for what this group does
 set statusline+=%(%.50F\ %=%l,%c%V\ %P%)
 #set statusline+=%(              # Begin group
 #set statusline+=\ %.50F\          # Full file path
