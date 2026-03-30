@@ -57,6 +57,8 @@ check_and_install() {
   check_installed $1 || install_package $1
 }
 
+VIM=$(if [[ $PACKAGE_MANAGER == 'dnf' ]]; then echo 'vim-enhanced'; else echo 'vim'; fi)
+echo "Setting ViM package name to $VIM"
 ESSENTIAL_PACKAGES="git curl wget vim"
 echo "Installing the essentials: $ESSENTIAL_PACKAGES"
 for package in $ESSENTIAL_PACKAGES; do
