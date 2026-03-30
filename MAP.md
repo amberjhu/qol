@@ -3,6 +3,7 @@
 A notebook for me to map out Unix filesystems.
 
 - `/etc/`
+  - `services` **Network** services, not systemd services. Maps http to port 80 and so on
   - `passwd`
     - `/etc/passwd` file format
 
@@ -11,8 +12,7 @@ A notebook for me to map out Unix filesystems.
 |daemon|x|1|1|daemon|/usr/sbin|/usr/sbin/nologin|
 |amber|x|1000|1000|Amber|/home/amber|/bin/bash|
 
-  - `services` **Network** services, not systemd services. Maps http to port 80 and so on
-  - `shadow` this is where the actual password hashes are kept, and only `root` has access
+    - `shadow` this is where the actual password hashes are kept, and only `root` has access
 - `/home/$USER/` AKA `~`
   - `bin/` or `.local/bin/`
 - `/dev/` Devices (not developer/development)
