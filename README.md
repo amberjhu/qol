@@ -11,6 +11,7 @@ So, let's put these all in one place for the future.
 |Why is my syntax highlighting/spacing/status line not working in Vim?|`:scriptnames` in vi shows no `~/.vimrc`|`./setup.sh` answer yes to .vimrc|
 |Why isn't `:scriptnames` working? It's probably tiny Vim. |`readlink -f $(which vi)` says `tiny.vim` or similar|`./setup.sh --only vim`|
 |My commits on GitHub/GitLab show an anonymous profile pic| Click on the commit author details. |FIXME|
+|Why is the desktop icon for my 3rd party software just a gray gear?|||
 
 ## Bash Cheat Sheet
 
