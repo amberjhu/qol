@@ -20,6 +20,8 @@ elif [[ ${PACKAGE_MANAGER_REPLY,,} == 'd' ]]; then
   PACKAGE_MANAGER='dnf'
 elif [[ ${PACKAGE_MANAGER_REPLY,,} == 'p' ]]; then
   PACKAGE_MANAGER='pacman'
+  echo "Not implemented yet"
+  exit 67
 else
   echo "Could not recognize prompt response, quitting"
   exit 1
@@ -57,8 +59,6 @@ check_and_install() {
   check_installed $1 || install_package $1
 }
 
-VIM=$(if [[ $PACKAGE_MANAGER == 'dnf' ]]; then echo 'vim-enhanced'; else echo 'vim'; fi)
-echo "Setting ViM package name to $VIM"
 ESSENTIAL_PACKAGES="git curl wget vim"
 echo "Installing the essentials: $ESSENTIAL_PACKAGES"
 for package in $ESSENTIAL_PACKAGES; do
@@ -77,3 +77,8 @@ if [[ ${ADD_SSH_CONFIG,,} == 'y' ]]; then
     && printf "Host $HOST_NICKNAME\nHostName $HOST_HOSTNAME\nUser $HOST_USERNAME\n\n" >> ~/.ssh/config
 fi
 
+read -p "Would you like to install Rust using rustup? [y/N] " INSTALL_RUSTUP
+if [[ ${INSTALL_RUSTUP,,} == 'y' ]]; then
+  # Officially endorsed command for unix as of March 2026
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
