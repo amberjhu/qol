@@ -67,3 +67,11 @@ read -p "Would you like to generate SSH keys? [y/N] " GEN_SSH_KEYS
 if [[ ${GEN_SSH_KEYS,,} == 'y' ]]; then
   exit 67
 fi
+
+read -p "Would you like to add an SSH host to the config file? [y/N] " ADD_SSH_CONFIG
+if [[ ${ADD_SSH_CONFIG,,} == 'y' ]]; then
+  read -p "Nickname: " HOST_NICKNAME && read -p "Hostname (without http://) " HOST_HOSTNAME \
+    && read -p "User: " HOST_USERNAME \
+    && printf "Host $HOST_NICKNAME\nHostName $HOST_HOSTNAME\nUser $HOST_USERNAME\n\n" >> ~/.ssh/config
+fi
+
