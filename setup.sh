@@ -113,3 +113,14 @@ if [[ ${INSTALL_NU,,} == 'y' ]]; then
     pacman -S nushell
   fi
 fi
+
+read -p "Would you like to install Gitlab Runner? (Requires sudo) [y/N] " INSTALL_GL_RUNNER
+if [[ ${INSTALL_GL_RUNNER,,} == 'y' ]]; then
+  if [[ ${PACKAGE_MANAGER} == 'apt' ]]; then
+    curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+    sudo apt install gitlab-runner
+  elif [[ ${PACKAGE_MANAGER} == 'dnf' ]]; then
+    curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh" | sudo bash
+    sudo dnf install gitlab-runner
+  fi
+fi
