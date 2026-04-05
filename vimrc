@@ -34,7 +34,7 @@ set statusline+=%h              # help file flag
 set statusline+=%m              # modified flag
 set statusline+=%r              # readonly flag
 set statusline+=\ [%{&ff}]      # Fileformat [unix]/[dos] etc...
-set statusline+=\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})  # last modified timestamp
+set statusline+=\ (%{strftime(\"%H:%M\ %Y/%m/%d\",getftime(expand(\"%:p\")))})  # last modified timestamp
 set statusline+=%=              # Right align the following group:
 # See below for what this group does
 set statusline+=%(%.50F\ %=%l,%c%V\ %P%)
