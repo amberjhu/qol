@@ -21,6 +21,26 @@ So, let's put these all in one place for the future.
 |Which Linux distro version am I on?|`lsb_release -a`|
 |How do I confirm a checksum?|`echo "$SUM $FILE" \| sha256sum -c`|
 
+## `systemd` cheat sheet
+
+Source of truth: `man systemd.unit` or `man systemd.service`
+
+`systemd` runs units, some of which are services. The configuration files are in `/etc/systemd/system/` and `/usr/lib/systemd/system` for system-level units. 
+User level units are in `~/.config/systemd/user/`.
+
+Unit config files are very [TOML](toml.io)-like, but simpler and the subsection syntax is different. Basically, each section is in brackets, followed by a list of key-value pairs. Spaces before and after the `=` are ignored.
+Check out this [service file generator](https://mysystemd.talos.sh/) to help with the syntax.
+
+```ini
+[Unit]
+Description = 
+
+[Service]
+ExecStart = 
+
+[Install]
+WantedBy = multi-user.target
+```
 
 ## TODO
 
