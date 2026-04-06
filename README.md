@@ -20,6 +20,10 @@ So, let's put these all in one place for the future.
 |---|---|
 |Which Linux distro version am I on?|`lsb_release -a`|
 |How do I confirm a checksum?|`echo "$SUM $FILE" \| sha256sum -c`|
+|How do I get the process id (PID) of a background process with called `abc`|`pgrep abc`|
+|How do I run a command in the background?|`command args &`|
+|How do I see which processes I dispatched in the background of this shell?|`jobs`|
+|How do I terminate one of those jobs?|`kill %1` to kill job 1, `kill %2`, etc.|
 
 ## `systemd` cheat sheet
 
