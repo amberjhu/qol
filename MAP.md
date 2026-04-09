@@ -36,3 +36,6 @@ A notebook for me to map out Unix filesystems.
 	- `lib/`
 		- `systemd/system/` Unit configuration files
 			- These ones are also at the system level like `/etc/systemd/system` but get loaded later (e.g., [Jellyfin home server](jellyfin.org)
+- `/var/`
+	- `lib/`
+		- `systemd/linger/` directory of files with usernames for users that can linger (systemd services run after they logout)
