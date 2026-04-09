@@ -25,7 +25,9 @@ A notebook for me to map out Unix filesystems.
 	- `zoom/`
 	- `f5/vpn/`
 - `/home/$USER/` AKA `~`
-	- `bin/` or `.local/bin/`
+	- `bin/` or `.local/bin/` Binaries installed for only this user
+	- `.config/systemd/user` Unit/service files for only this user
+		- Have to be enabled/started with `systemctl --user`
 - `/proc/` Files related to currently active processes
 	- `self/` Changes depending on which process is asking!
 - `/root/` AKA `~` to `root` user

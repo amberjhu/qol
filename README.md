@@ -13,6 +13,12 @@ So, let's put these all in one place for the future.
 |My commits on GitHub/GitLab show an anonymous profile pic| Click on the commit author details. |`git config user.email EMAIL` where EMAIL is the email tied to your GitHub acct. It will not be publicly displayed |
 |Why is the desktop icon for my 3rd party software just a gray gear?|`sudo vi lm-studio.desktop` and change `Icon` to `/opt/LM-Studio/resources/icon.ico`||
 
+## Virtual Private Server (VPS) problems
+
+|Question|Answer|Fix|
+|---|---|---|
+|Why is my `cargo build` crashing even though it builds fine on my local machine?|VPS servers have limited RAM, especially cheap ones|`cargo build -j 1` will usually work since it's meant to run on a machine with one CPU, and you only have one vCPU|
+|Why are my systemd user services exiting after I end my SSH session?|By default, systemd cleans up user services when they logout.|Enable lingering with `sudo loginctl enable-linger $USER`|
 
 ## Bash Cheat Sheet
 
