@@ -8,11 +8,13 @@ A notebook for me to map out Unix filesystems.
 
 ## GNOME vs. KDE
 
-## DBUS
+## dbus ([Desktop Bus](https://en.wikipedia.org/wiki/D-Bus))
+
+Inter process communication for a GNOME desktop. Allows for publish-subscribe, but also remote procedure calls.
 
 ## ibus ([Intelligent Input Bus](https://en.wikipedia.org/wiki/Intelligent_Input_Bus))
 
-Multilingual input system that you can download "keyboards" for. [Can run on GNOME, KDE, or X](https://github.com/ibus/ibus/wiki/DevGuide#run-gnome-kde-or-old-x-applications). I export all three of these variables in `/etc/environment`
+Multilingual input system that you can download "keyboards" for, built on top of dbus. [Can run on GNOME, KDE, or X](https://github.com/ibus/ibus/wiki/DevGuide#run-gnome-kde-or-old-x-applications). I export all three of these variables in `/etc/environment`
 
 # Filesystem
 
