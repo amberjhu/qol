@@ -19,6 +19,7 @@ So, let's put these all in one place for the future.
 |---|---|---|
 |Why is my `cargo build` crashing even though it builds fine on my local machine?|VPS servers have limited RAM, especially cheap ones|`cargo build -j 1` will usually work since it's meant to run on a machine with one CPU, and you only have one vCPU|
 |Why are my systemd user services exiting after I end my SSH session?|By default, systemd cleans up user services when they logout.|Enable lingering with `sudo loginctl enable-linger $USER`|
+|What's my public IP?|Network address translation obscures this, so we have to query a server to tell us|`host myip.opendns.com resolver1.opendns.com`|
 
 ## Bash Cheat Sheet
 
@@ -30,6 +31,7 @@ So, let's put these all in one place for the future.
 |How do I run a command in the background?|`command args &`|
 |How do I see which processes I dispatched in the background of this shell?|`jobs`|
 |How do I terminate one of those jobs?|`kill %1` to kill job 1, `kill %2`, etc.|
+|How do I parse JSON from the command line?|Use `jq`, simplest way is to access a field: `jq .foo` will access the `foo` field of the JSON piped in.| 
 
 ## `systemd` cheat sheet
 

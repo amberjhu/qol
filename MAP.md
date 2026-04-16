@@ -4,9 +4,21 @@ A notebook for me to map out Unix filesystems.
 
 # Glossary
 
+# Snap vs. Flatpak
+
+They are both ways of packaging dependencies and doing some level of sandboxing.
+The benefit is that they don't mess with your setup. The drawback is that they don't integrate well into your setup.
+
+Some users report slower startup times from Snap compared to Flatpak. Flatpak is only for Desktop apps, not server use cases.
+
 ## X11 vs. Wayland
 
+Window managers. Every GUI application communicates over one of these protocols to a display server,
+which is a process that manages the frame buffer.
+
 ## GNOME vs. KDE
+
+Desktop environments. GNOME is the default for Ubuntu.
 
 ## dbus ([Desktop Bus](https://en.wikipedia.org/wiki/D-Bus))
 
@@ -15,6 +27,11 @@ Inter process communication for a GNOME desktop. Allows for publish-subscribe, b
 ## ibus ([Intelligent Input Bus](https://en.wikipedia.org/wiki/Intelligent_Input_Bus))
 
 Multilingual input system that you can download "keyboards" for, built on top of dbus. [Can run on GNOME, KDE, or X](https://github.com/ibus/ibus/wiki/DevGuide#run-gnome-kde-or-old-x-applications). I export all three of these variables in `/etc/environment`
+
+## PGP vs. GPG
+
+OpenPGP is an encryption protocol based on the proprietary encryption tool PGP (Pretty Good Privacy). 
+GPG (GNU Privacy Guard) is an implementation of OpenPGP.
 
 # Filesystem
 
