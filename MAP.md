@@ -18,7 +18,8 @@ which is a process that manages the frame buffer.
 
 ## GNOME vs. KDE
 
-Desktop environments. GNOME is the default for Ubuntu.
+Desktop environments. GNOME is the default for Ubuntu. You can customize the theme of GNOME, which includes the icons.
+I use the Yaru theme.
 
 ## dbus ([Desktop Bus](https://en.wikipedia.org/wiki/D-Bus))
 
