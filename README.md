@@ -54,6 +54,11 @@ ExecStart =
 WantedBy = multi-user.target
 ```
 
+## Ubuntu Wayland Desktop Cheat Sheet
+|Problem|Solution|
+|--|--|
+|An update broke the taskbar icon for my third-party software (e.g. Mattermost)|`Alt+F2`, click "Windows" and look at the WMClass of the software in question. Go to the relevant software's Desktop settings (e.g. `/usr/share/applications/mattermost-desktop.desktop` and update the StartupWMClass.|
+
 ## TODO
 
 - Implement `--only package` flag for setup.sh
