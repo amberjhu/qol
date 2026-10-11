@@ -12,6 +12,12 @@ if [[ ${OVERWRITE_BASHRC,,} == 'y' ]]; then
   echo "copying to ~/.bashrc"
   cp ./bashrc ~/.bashrc
 fi
+if ! [[ -f ~/.bash_profile ]]; then
+  read -p "There is no ~/.bash_profile file. Would you like me to add one? [Y/n] " ADD_BASH_PROFILE
+  if [[ ${ADD_BASH_PROFILE,,} != 'n' ]]; then
+    cp ./bash_profile ~/.bash_profile
+  fi
+fi
 
 read -p "Which package manager does this Linux distro use? (A)pt, (D)nf, (P)acman " PACKAGE_MANAGER_REPLY
 if [[ ${PACKAGE_MANAGER_REPLY,,} == 'a' ]]; then
